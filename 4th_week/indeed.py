@@ -1,3 +1,14 @@
+'''
+안녕하세요 산업보안학과 20161247 정두영입니다.
+
+강의를 보며 웹 크롤링을 접하여 태그를 찾아 불러오는 것에 대해서
+구글링도 해가며 공부했습니다. 코드가 강의의 내용과 같으면 안되기 때문에
+억지로라도 다른 방식으로 하려고 했지만 그것이 더 어려웠습니다.
+따라서 아무 생각없이 코드를 보고 그대로 따라친 것이 아니라는 것을
+증명하는 의미에서 각 코드마다 주석을 달아 설명햇고,
+출력 형식을 조금 바꿨습니다. 감사합니다.
+'''
+
 import requests, csv
 import os
 from bs4 import BeautifulSoup
@@ -47,7 +58,7 @@ class Crawling():
     def writeCSV(self, jobID, jobTitle, jobLocation, cnt):
 
         # encoding의 한글 호환 문제 때문에 UTF8 형태로 인코딩 해주는 encoding를 추가해주었다
-        file = open("indeed.csv", "a", newline="", encoding='UTF8')
+        file = open("indeed.csv", "a", newline="")
         wr = csv.writer(file)
 
         # 크롤링한 카드의 개수만큼 i로 순회해주며 파일에 쓴다
@@ -92,7 +103,7 @@ class Crawling():
         pages = self.getPages(soupPage)
 
         # 파일을 열어 최초 한번 초기화된 상태로 첫 번째 행의 정보를 쓴다
-        file = open("indeed.csv", "w", newline="", encoding='UTF8')
+        file = open("indeed.csv", "w", newline="")
         wr = csv.writer(file)
         wr.writerow(["No.","Link","Title","Location"])
         file.close
